@@ -1,0 +1,10 @@
+The backend to this project is written in node js
+Hosted at (https://gracieblog.herokuapp.com/posts)
+
+The database is in mongodb collections
+At https://cloud.mongodb.com/v2/6292407b616aad48270bc7a1#metrics/replicaSet/62924125f2bc7d396b543e37/explorer/blog/posts/
+
+
+Deficiencies of backend
+1.Image Upload
+2.Handling spaces in url
