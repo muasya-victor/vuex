@@ -1,6 +1,16 @@
 <template>
 <div>
 
+  <div>
+    <select>
+      <option>category</option>
+      <option v-for="(blog, index) in $store.state.blogs " :key="index" @click="$store.dispatch('getSameCategoryBlogs'); getCategory(blog.category)">
+        <h6>
+          {{blog.category}}
+        </h6>
+      </option>
+    </select>
+  </div>
 
   <!------------------------------------------------------display same category blogs ---------------------------------------------------------------------->
 
@@ -13,10 +23,12 @@
           <h1>{{similar_blog.title}}</h1>
           <h1>{{similar_blog.body}}</h1>
       </div>
-    </div>
+  </div>
 
-<!------------------------------------------------------get values on click ---------------------------------------------------------------------->
-    <button class="bg-amber-500 rounded-2xl px-4 py-2" @click="$store.dispatch('getSameCategoryBlogs'); getCategory('gospel')">click me</button>
+
+
+
+
   </div>
 
 </template>
