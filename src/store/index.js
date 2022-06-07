@@ -3,13 +3,13 @@ import axios from "axios";
 
 
 const url = 'https://gracieblog.herokuapp.com/posts'
-const same_category_url = 'https://gracieblog.herokuapp.com/category'
 const headers = {Accept : 'application/json'}
 
 export default createStore({
   state: {
     blogs : '',
-    similar_blogs : ''
+    blog_categories : [],
+    similar_blogs : []
 
   },
   getters: {
@@ -22,7 +22,14 @@ export default createStore({
     },
     getAllBlogs(state, payload){
       this.state.blogs = payload
-      console.log('payload', payload)
+      (payload.map(blog => {
+        if (!this.state.blog_categories.includes(blog.category)){
+          this.state.blog_categories.push(blog.category)
+          return this.state.blog_categories
+        }
+
+      }))
+
     },
     getSpecificBlog(){
 
@@ -36,6 +43,7 @@ export default createStore({
     getSameCategoryBlogs(state, payload){
       this.state.similar_blogs = payload
       // console.log('same category blogs', payload)
+      return this.state.similar_blogs
     }
   },
   actions: {
@@ -58,7 +66,6 @@ export default createStore({
     getSameCategoryBlogs({commit}, category){
         axios.get(url + '/category/' + category, {headers}).then(response =>{
           commit('getSameCategoryBlogs', response.data)
-          console.log('category this ', response.data, url )
         })
     }
   },

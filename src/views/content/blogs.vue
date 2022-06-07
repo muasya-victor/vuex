@@ -1,12 +1,14 @@
 <template>
 <div>
 
+<!--  <category_dropdown/>-->
   <div>
+
     <select>
       <option>category</option>
-      <option v-for="(blog, index) in $store.state.blogs " :key="index" @click="$store.dispatch('getSameCategoryBlogs'); getCategory(blog.category)">
+      <option v-for="(blog, index) in $store.state.blog_categories " :key="index" @click="getCategory(blog)">
         <h6>
-          {{blog.category}}
+          {{blog}}
         </h6>
       </option>
     </select>
@@ -14,14 +16,25 @@
 
   <!------------------------------------------------------display same category blogs ---------------------------------------------------------------------->
 
+
   <div class="rounded-xl ring-1 w-11/12 mb-1 py-4 mx-auto"
   v-if="show_blogs === true">
-      <div v-for="(similar_blog, index) in $store.state.similar_blogs "
+
+
+    <div v-show="$store.state.similar_blogs.length == 0">
+      <img src="@/assets/loader.gif" class="mx-auto">
+
+    </div>
+
+      <div v-for="(blog, index) in $store.state.similar_blogs "
+           v-show="$store.state.similar_blogs.length != 0"
            :key="index"
            class="ring-1 w-11/12 mb-1 rounded-xl mx-auto"
       >
-          <h1>{{similar_blog.title}}</h1>
-          <h1>{{similar_blog.body}}</h1>
+
+          <h1>{{blog.title}}</h1>
+          <h1>{{blog.body}}</h1>
+
       </div>
   </div>
 
@@ -34,6 +47,8 @@
 </template>
 
 <script>
+// import category_dropdown from "@/components/category_dropdown";
+
 export default {
   name: "blogs",
   data(){
@@ -43,10 +58,9 @@ export default {
   },
   methods : {
     getCategory(value){
-      this.show_blogs = !this.show_blogs
-      this.category= value
-      this.$store.dispatch('getSameCategoryBlogs',value)
-      console.log(value, "here")
+      this.show_blogs = true
+      this.$store.dispatch('getSameCategoryBlogs', value)
+      console.log(value, "alaaa")
     }
   }
 
