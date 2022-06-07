@@ -1,24 +1,24 @@
 import { createStore } from 'vuex'
 import axios from "axios";
-import blogs from "@/views/content/blogs";
 
 
 const url = 'https://gracieblog.herokuapp.com/posts'
+const same_category_url = 'https://gracieblog.herokuapp.com/category'
 const headers = {Accept : 'application/json'}
 
 export default createStore({
   state: {
-    blogs : ''
+    blogs : '',
+    similar_blogs : ''
 
   },
   getters: {
     async getAllBlogs(state, payload){
-     return blogs
+     return this.state.blogs
     }
   },
   mutations: {
     addBlogs(state, payload){
-      // this.state.blogs.push(payload)
     },
     getAllBlogs(state, payload){
       this.state.blogs = payload
@@ -33,14 +33,13 @@ export default createStore({
     updateBlogBody(){
 
     },
-    getSameCategoryBlogs(){
-
+    getSameCategoryBlogs(state, payload){
+      this.state.similar_blogs = payload
+      // console.log('same category blogs', payload)
     }
   },
   actions: {
-  //  asynchronous functions
     addBlogs(state, payload){
-      // this.state.blogs.push(payload)
     },
     getAllBlogs({commit}){
       axios.get(url, {headers}).then(response =>{
@@ -56,8 +55,11 @@ export default createStore({
     updateBlogBody(){
 
     },
-    getSameCategoryBlogs(){
-
+    getSameCategoryBlogs({commit}, category){
+        axios.get(url + '/category/' + category, {headers}).then(response =>{
+          commit('getSameCategoryBlogs', response.data)
+          console.log('category this ', response.data, url )
+        })
     }
   },
   modules: {

@@ -8,3 +8,4 @@ At https://cloud.mongodb.com/v2/6292407b616aad48270bc7a1#metrics/replicaSet/6292
 Deficiencies of backend
 1.Image Upload
 2.Handling spaces in url
+3.Get likes to determine the most viewed blog posts
