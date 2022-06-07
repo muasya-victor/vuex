@@ -1,12 +1,13 @@
 <template>
   <div class="home">
-    <Home msg="Welcome to Your Vue.js App"/>
+    <Home/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Home from '@/components/Home.vue'
+// import Home from "@/components/Home";
 
 export default {
   name: 'HomeView',

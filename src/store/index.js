@@ -22,6 +22,7 @@ export default createStore({
     },
     getAllBlogs(state, payload){
       this.state.blogs = payload
+       return this.state.blogs
 
       //    get all categories listed and ensure none is added twice to the list
       (payload.map(blog => {
