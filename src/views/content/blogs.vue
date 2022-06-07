@@ -4,7 +4,7 @@
 <!--  <category_dropdown/>-->
   <div>
 
-    <select>
+    <select class="ring-1">
       <option>category</option>
       <option v-for="(blog, index) in $store.state.blog_categories " :key="index" @click="getCategory(blog)">
         <h6>

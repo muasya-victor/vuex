@@ -22,6 +22,8 @@ export default createStore({
     },
     getAllBlogs(state, payload){
       this.state.blogs = payload
+
+      //    get all categories listed and ensure none is added twice to the list
       (payload.map(blog => {
         if (!this.state.blog_categories.includes(blog.category)){
           this.state.blog_categories.push(blog.category)
