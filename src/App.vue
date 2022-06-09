@@ -1,42 +1,23 @@
 <template>
-  <div class="bg-gray-200 h-screen">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/blogs">Blog</router-link>
-    </nav>
+  <div class="bg-white">
+    <topnav/>
     <router-view/>
   </div>
 </template>
 
 
 <script>
+import topnav from "@/components/headers/topnav";
 export default {
   mounted() {
     this.$store.dispatch("getAllBlogs")
   },
+  components : {
+    topnav
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

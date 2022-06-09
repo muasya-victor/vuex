@@ -3,7 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import BlogView from '../views/content/blogs.vue'
 // import * as path from "path";
 
-
+//child components
+import same_category_blogs from "@/components/content/same_category_blogs";
 
 const routes = [
   {
@@ -24,7 +25,16 @@ const routes = [
   {
     path: '/blogs',
     name : 'blog',
-    component: BlogView
+    component: BlogView,
+    children : [
+      {
+        path : '/similar',
+        name : 'similar-blogs',
+        component : {
+          same_category_blogs
+        }
+      }
+    ]
   },
 ]
 
