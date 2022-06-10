@@ -3,7 +3,7 @@
     <div class="h-fit flex flex-col items-center justify-center m-0 -z-10">
       <blog-image />
 
-      <sidebar class="-mt-8 z-50"/>
+      <sidebar class="-mt-8 z-30"/>
 
 
 

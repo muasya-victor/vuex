@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen px-4 py-6 ">
+  <div class="w-screen px-4 py-6 z-50">
     <nav class=" lg:flex gap-8 px-8 items-center justify-around hidden">
 
 

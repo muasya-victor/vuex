@@ -4,7 +4,9 @@ import BlogView from '../views/BlogViewHandler/BlogView.vue'
 // import * as path from "path";
 
 //child components
-import same_category_blogs from "@/components/BlogHandler/SameCategoryBlogs";
+import SameCategoryBlogs from "@/components/BlogHandler/SameCategoryBlogs";
+import SpecificBlog from "@/components/BlogHandler/SpecificBlog";
+import PostBlog from "@/components/BlogHandler/PostBlog";
 
 const routes = [
   {
@@ -31,11 +33,21 @@ const routes = [
     component: BlogView,
     children : [
       {
-        path : '/similar',
-        name : 'similar-blogs',
+        path : '/category/:CategoryName',
+        name : 'category',
         component : {
-          same_category_blogs
+          SameCategoryBlogs
         }
+      },
+      {
+        path: '/title/:BlogTitle',
+        name : 'title',
+        component: SpecificBlog
+      },
+      {
+        path: '/post',
+        name : 'post',
+        component: PostBlog
       }
     ]
   },

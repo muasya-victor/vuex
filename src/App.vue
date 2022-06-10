@@ -1,19 +1,19 @@
 <template>
-  <div class="bg-white">
-    <topnav/>
+  <div class="bg-white ">
+    <TheHeader class="absolute top-0 sticky bg-white z-50 shadow p-0 "/>
     <router-view/>
   </div>
 </template>
 
 
 <script>
-import topnav from "@/components/headers/TheHeader";
+import TheHeader from "@/components/headers/TheHeader";
 export default {
   mounted() {
     this.$store.dispatch("getAllBlogs")
   },
   components : {
-    topnav
+    TheHeader
   }
 }
 </script>
