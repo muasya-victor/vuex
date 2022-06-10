@@ -14,8 +14,8 @@
 
 <script>
 // import category_dropdown from "@/components/category_dropdown";
-import blogImage from "@/components/blogImage";
-import sidebar from "@/components/sidebar/sidebar";
+import blogImage from "@/components/includes/BlogWelcomeSection";
+import sidebar from "@/components/BlogFilter/BlogFilter";
 
 export default {
   name: "blogs",

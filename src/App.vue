@@ -7,7 +7,7 @@
 
 
 <script>
-import topnav from "@/components/headers/topnav";
+import topnav from "@/components/headers/TheHeader";
 export default {
   mounted() {
     this.$store.dispatch("getAllBlogs")

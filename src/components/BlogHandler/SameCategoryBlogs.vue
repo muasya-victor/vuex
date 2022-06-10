@@ -42,7 +42,7 @@
 
 <script>
 // import category_dropdown from "@/components/category_dropdown";
-import blogImage from "@/components/blogImage";
+import blogImage from "@/components/includes/BlogWelcomeSection";
 
 export default {
   name: "blogs",

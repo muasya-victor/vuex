@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import PostBlog from "@/components/PostBlog";
+import PostBlog from "@/components/BlogHandler/PostBlog";
 
 export default {
   name: 'HelloWorld',

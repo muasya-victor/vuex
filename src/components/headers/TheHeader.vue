@@ -24,10 +24,10 @@
     </div>
 
     <!--      links-->
-    <div v-if="toggle_nav === true" class="lg:hidden flex flex-col" @mouseleave="toggle_nav_bar">
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/blogs">Blog</router-link>
+    <div v-if="toggle_nav === true" class="lg:hidden flex flex-col justify-center items-center " @mouseleave="toggle_nav_bar">
+      <router-link to="/" class="hover:text-gray-600 hover:font-bold">Home</router-link>
+      <router-link to="/about" class="hover:text-gray-600 hover:font-bold">About</router-link>
+      <router-link to="/blogs" class="hover:text-gray-600 hover:font-bold">Blog</router-link>
     </div>
   </div>
 </template>
